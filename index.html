@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CRM integrations</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Dashboard</h1>
+    <div class="grid">
+      <!-- Lead Capture Form -->
+      <div class="card">
+        <h2>Capture Facebook Lead</h2>
+        <form id="lead-form">
+          <input type="text" id="first-name" placeholder="First Name" required>
+          <input type="text" id="last-name" placeholder="Last Name" required>
+          <input type="email" id="email" placeholder="Email" required>
+          <button type="submit">Add Lead</button>
+        </form>
+        <div id="lead-message"></div>
+      </div>
+      <!-- Document Upload Form -->
+      <div class="card">
+        <h2>Upload Document</h2>
+        <form id="upload-form" enctype="multipart/form-data">
+          <input type="hidden" name="csrf_token" id="csrf_token">
+          <input type="file" id="file" name="file" accept=".pdf,.png" required>
+          <button type="submit">Upload</button>
+        </form>
+        <div id="upload-message"></div>
+      </div>
+      <!-- Quote Generation Form -->
+      <div class="card">
+        <h2>Generate Quote</h2>
+        <form id="quote-form">
+          <input type="text" id="contact-id" placeholder="Contact ID" required>
+          <textarea id="items" placeholder="Items (e.g., Item1:100,Item2:200)" required></textarea>
+          <button type="submit">Generate Quote</button>
+        </form>
+        <div id="quote-message"></div>
+      </div>
+      <!-- Activity Scheduling Form -->
+      <div class="card">
+        <h2>Schedule Activity</h2>
+        <form id="schedule-form">
+          <input type="text" id="sched-contact-id" placeholder="Contact ID" required>
+          <input type="datetime-local" id="sched-date" required>
+          <select id="sched-type" required>
+            <option value="MEETING">Meeting</option>
+            <option value="TASK">Task</option>
+          </select>
+          <button type="submit">Schedule</button>
+        </form>
+        <div id="schedule-message"></div>
+      </div>
+    </div>
+    <!-- Dashboard for Leads and Quotes -->
+    <div class="card">
+      <h2>Recent Leads</h2>
+      <div id="leads"></div>
+    </div>
+    <div class="card">
+      <h2>Recent Quotes</h2>
+      <div id="quotes"></div>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
